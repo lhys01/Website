@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Animal Fight Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #333;
+        }
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animal Fight Simulator</h1>
+    <p>Select two animals to see who would win in a hypothetical fight:</p>
+
+    <form>
+        <label for="animal1">Animal 1:</label>
+        <select id="animal1">
+            <option value="lion">Lion</option>
+            <option value="tiger">Tiger</option>
+            <option value="bear">Bear</option>
+            <option value="wolf">Wolf</option>
+            <option value="crocodile">Crocodile</option>
+            <option value="elephant">Elephant</option>
+            <option value="shark">Shark</option>
+            <option value="gorilla">Gorilla</option>
+            <option value="rhinoceros">Rhinoceros</option>
+            <option value="cheetah">Cheetah</option>
+            <option value="polarbear">Polar Bear</option>
+            <option value="python">Python</option>
+            <option value="eagle">Eagle</option>
+            <option value="greatwhite">Great White Shark</option>
+            <option value="hippopotamus">Hippopotamus</option>
+            <option value="leopard">Leopard</option>
+            <option value="wolverine">Wolverine</option>
+            <option value="komodo">Komodo Dragon</option>
+            <option value="giraffe">Giraffe</option>
+        </select>
+
+        <label for="animal2">Animal 2:</label>
+        <select id="animal2">
+            <option value="lion">Lion</option>
+            <option value="tiger">Tiger</option>
+            <option value="bear">Bear</option>
+            <option value="wolf">Wolf</option>
+            <option value="crocodile">Crocodile</option>
+            <option value="elephant">Elephant</option>
+            <option value="shark">Shark</option>
+            <option value="gorilla">Gorilla</option>
+            <option value="rhinoceros">Rhinoceros</option>
+            <option value="cheetah">Cheetah</option>
+            <option value="polarbear">Polar Bear</option>
+            <option value="python">Python</option>
+            <option value="eagle">Eagle</option>
+            <option value="greatwhite">Great White Shark</option>
+            <option value="hippopotamus">Hippopotamus</option>
+            <option value="leopard">Leopard</option>
+            <option value="wolverine">Wolverine</option>
+            <option value="komodo">Komodo Dragon</option>
+            <option value="giraffe">Giraffe</option>
+        </select>
+
+        <input type="button" value="Fight" onclick="calculateWinner()">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateWinner() {
+            const animal1 = document.getElementById("animal1").value;
+            const animal2 = document.getElementById("animal2").value;
+
+            let winner = "No winner yet.";
+
+            // Compare animal pairs efficiently, and update the winner accordingly.
+            const animals = ["lion", "tiger", "bear", "wolf", "crocodile", "elephant", "shark", "gorilla", "rhinoceros", "cheetah", "polarbear", "python", "eagle", "greatwhite", "hippopotamus", "leopard", "wolverine", "komodo", "giraffe"];
+
+            if (animals.includes(animal1) && animals.includes(animal2) && animal1 !== animal2) {
+                winner = (animals.indexOf(animal1) > animals.indexOf(animal2)) ? animal1 : animal2;
+            }
+
+            document.getElementById("result").innerHTML = `Winner: ${winner}`;
+        }
+    </script>
+</body>
+</html>
